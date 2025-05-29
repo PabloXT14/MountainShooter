@@ -1,0 +1,22 @@
+# Ambiente virtual
+venv/
+.env/
+
+# Arquivos do Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Arquivos de log e cache
+*.log
+*.sqlite3
+*.db
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Testes (opcional)
+coverage/
+*.cover
+htmlcov/
