@@ -3,9 +3,6 @@ import pygame
 
 class Game:
     def __init__(self):
-        self.window = None
-
-    def run(self):
         # Initialize pygame
         pygame.init()
 
@@ -14,8 +11,10 @@ class Game:
         height = 600
 
         screen = pygame.display.set_mode(size=(width, height))
+
         pygame.display.set_caption("Mountain Shooter")
 
+    def run(self):
         running = True
 
         while running:
