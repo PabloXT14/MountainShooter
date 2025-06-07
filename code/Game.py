@@ -22,10 +22,3 @@ class Game:
             menu = Menu(window=self.window)
 
             menu.run()
-
-            # Events
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    pygame.quit()  # Close the window
-                    quit()  # Close the program
-                    running = False  # Stop the loop
