@@ -1,10 +1,19 @@
 import pygame
+from pygame.font import Font
+from pygame.surface import Surface
+from pygame.rect import Rect
 
-from code.Constants import WINDOW_WIDTH, WINDOW_HEIGHT
+from code.Constants import (
+    WINDOW_WIDTH,
+    WINDOW_HEIGHT,
+    COLOR_ORANGE,
+    COLOR_WHITE,
+    MENU_OPTIONS,
+)
 
 
 class Menu:
-    def __init__(self, window: pygame.Surface):
+    def __init__(self, window: Surface):
         self.window = window
 
         # Carrega a imagem
@@ -30,7 +39,31 @@ class Menu:
         while running:
             self.window.blit(source=self.surface, dest=self.rect)
 
-            pygame.display.flip()  # Atualiza a tela
+            # Desenha o textos no menu
+            self.menu_text(
+                text_size=50,
+                text="MOUNTAIN",
+                text_color=COLOR_ORANGE,
+                text_center_pos=(WINDOW_WIDTH / 2, 70),
+            )
+
+            self.menu_text(
+                text_size=50,
+                text="SHOOTER",
+                text_color=COLOR_ORANGE,
+                text_center_pos=(WINDOW_WIDTH / 2, 120),
+            )
+
+            for i, option in enumerate(MENU_OPTIONS):
+                self.menu_text(
+                    text_size=16,
+                    text=option,
+                    text_color=COLOR_WHITE,
+                    text_center_pos=(WINDOW_WIDTH / 2, 200 + i * 30),
+                )
+
+            # Atualiza a tela
+            pygame.display.flip()
 
             # Events
             for event in pygame.event.get():
@@ -38,3 +71,16 @@ class Menu:
                     pygame.quit()  # Close the window
                     quit()  # Close the program
                     running = False  # Stop the loop
+
+    def menu_text(
+        self, text_size: int, text: str, text_color: tuple, text_center_pos: tuple
+    ):
+        text_font: Font = pygame.font.SysFont(
+            name="PressStart2P, Lucida Sans Typewriter, Arial", size=text_size
+        )
+
+        text_surf: Surface = text_font.render(text, True, text_color).convert_alpha()
+
+        text_rect: Rect = text_surf.get_rect(center=text_center_pos)
+
+        self.window.blit(source=text_surf, dest=text_rect)
