@@ -1,5 +1,7 @@
 import pygame
 
+from code.Menu import Menu
+
 
 class Game:
     def __init__(self):
@@ -10,7 +12,7 @@ class Game:
         width = 800
         height = 600
 
-        screen = pygame.display.set_mode(size=(width, height))
+        self.window = pygame.display.set_mode(size=(width, height))
 
         pygame.display.set_caption("Mountain Shooter")
 
@@ -18,6 +20,11 @@ class Game:
         running = True
 
         while running:
+            # Set Menu
+            menu = Menu(window=self.window)
+
+            menu.run()
+
             # Events
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
