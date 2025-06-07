@@ -1,5 +1,6 @@
 import pygame
 
+from code.Constants import WINDOW_WIDTH, WINDOW_HEIGHT
 from code.Menu import Menu
 
 
@@ -8,11 +9,8 @@ class Game:
         # Initialize pygame
         pygame.init()
 
-        # Screen
-        width = 800
-        height = 600
-
-        self.window = pygame.display.set_mode(size=(width, height))
+        # Window
+        self.window = pygame.display.set_mode(size=(WINDOW_WIDTH, WINDOW_HEIGHT))
 
         pygame.display.set_caption("Mountain Shooter")
 
