@@ -37,6 +37,7 @@ class Menu:
         running = True
 
         while running:
+            # Desenha a imagem
             self.window.blit(source=self.surface, dest=self.rect)
 
             # Desenha o textos no menu
