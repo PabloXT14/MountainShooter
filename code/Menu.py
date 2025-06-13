@@ -8,6 +8,7 @@ from code.Constants import (
     WINDOW_HEIGHT,
     COLOR_ORANGE,
     COLOR_WHITE,
+    COLOR_YELLOW,
     MENU_OPTIONS,
 )
 
@@ -35,6 +36,7 @@ class Menu:
 
     def run(self):
         running = True
+        selected_option = 2
 
         while running:
             # Desenha a imagem
@@ -59,7 +61,7 @@ class Menu:
                 self.menu_text(
                     text_size=16,
                     text=option,
-                    text_color=COLOR_WHITE,
+                    text_color=COLOR_YELLOW if i == selected_option else COLOR_WHITE,
                     text_center_pos=(WINDOW_WIDTH / 2, 200 + i * 30),
                 )
 
@@ -68,10 +70,29 @@ class Menu:
 
             # Events
             for event in pygame.event.get():
+                # Check if the window was closed
                 if event.type == pygame.QUIT:
                     pygame.quit()  # Close the window
                     quit()  # Close the program
                     running = False  # Stop the loop
+
+                # Check key down events
+                if event.type == pygame.KEYDOWN:
+                    # Check if the up or down arrow keys were pressed
+                    if event.key == pygame.K_UP:
+                        selected_option = (
+                            selected_option - 1
+                            if selected_option > 0
+                            else len(MENU_OPTIONS) - 1
+                        )
+                    elif event.key == pygame.K_DOWN:
+                        selected_option = (
+                            selected_option + 1
+                            if selected_option < len(MENU_OPTIONS) - 1
+                            else 0
+                        )
+                    elif event.key == pygame.K_RETURN:
+                        return selected_option
 
     def menu_text(
         self, text_size: int, text: str, text_color: tuple, text_center_pos: tuple
