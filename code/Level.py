@@ -12,7 +12,7 @@ class Level:
         self.game_mode = game_mode
         self.entity_list: list[Entity] = []
         self.entity_list.extend(
-            EntityFactory.get_entity(entity_name="background", level=2, images_amount=5)
+            EntityFactory.get_entity(entity_name="background", level=1, images_amount=7)
         )
 
     def run(self):
@@ -29,5 +29,7 @@ class Level:
             # Desenha as entidades
             for entity in self.entity_list:
                 self.window.blit(source=entity.surf, dest=entity.rect)
+
+                entity.move()  # Move the entity
 
             pygame.display.flip()

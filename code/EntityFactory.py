@@ -1,5 +1,7 @@
 from code.Background import Background
 
+from code.Constants import WINDOW_WIDTH
+
 
 class EntityFactory:
     @staticmethod
@@ -13,6 +15,13 @@ class EntityFactory:
                 for i in range(images_amount):
                     list_bg.append(
                         Background(name=f"Level{level}Bg{i}", position=position)
+                    )
+
+                    # Insert the background again to create a parallax effect
+                    list_bg.append(
+                        Background(
+                            name=f"Level{level}Bg{i}", position=(WINDOW_WIDTH, 0)
+                        )
                     )
 
                 return list_bg
