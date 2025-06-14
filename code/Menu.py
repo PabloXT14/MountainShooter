@@ -36,7 +36,7 @@ class Menu:
 
     def run(self):
         running = True
-        selected_option = 2
+        selected_option = 0
 
         while running:
             # Desenha a imagem
@@ -72,9 +72,9 @@ class Menu:
             for event in pygame.event.get():
                 # Check if the window was closed
                 if event.type == pygame.QUIT:
+                    running = False  # Stop the loop
                     pygame.quit()  # Close the window
                     quit()  # Close the program
-                    running = False  # Stop the loop
 
                 # Check key down events
                 if event.type == pygame.KEYDOWN:
@@ -91,8 +91,9 @@ class Menu:
                             if selected_option < len(MENU_OPTIONS) - 1
                             else 0
                         )
+                    # Check if press ENTER
                     elif event.key == pygame.K_RETURN:
-                        return selected_option
+                        return MENU_OPTIONS[selected_option]
 
     def menu_text(
         self, text_size: int, text: str, text_color: tuple, text_center_pos: tuple
