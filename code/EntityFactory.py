@@ -1,6 +1,27 @@
-class EntityFactory:
-    def __init__(self):
-        pass
+from code.Background import Background
 
-    def get_entity(self, entity_type):
-        pass
+from code.Constants import WINDOW_WIDTH
+
+
+class EntityFactory:
+    @staticmethod
+    def get_entity(
+        entity_name: str, level: int, position: tuple = (0, 0), images_amount: int = 1
+    ):
+        match entity_name:
+            case "background":
+                list_bg = []
+
+                for i in range(images_amount):
+                    list_bg.append(
+                        Background(name=f"Level{level}Bg{i}", position=position)
+                    )
+
+                    # Insert the background again to create a parallax effect
+                    list_bg.append(
+                        Background(
+                            name=f"Level{level}Bg{i}", position=(WINDOW_WIDTH, 0)
+                        )
+                    )
+
+                return list_bg
