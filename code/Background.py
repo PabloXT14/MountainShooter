@@ -5,7 +5,7 @@ from code.Constants import WINDOW_WIDTH, ENTITIES_SPEED
 
 class Background(Entity):
     def __init__(self, name: str, position: tuple):
-        super().__init__(name=name, position=position)
+        super().__init__(name=name, position=position, resize_to_screen=True)
         pass
 
     def move(self):
