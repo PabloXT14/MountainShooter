@@ -13,10 +13,15 @@ class Level:
         self.window = window
         self.name = name
         self.game_mode = game_mode
+
         self.entity_list: list[Entity] = []
         self.entity_list.extend(
             EntityFactory.get_entity(entity_name="background", level=1, images_amount=7)
         )
+        self.entity_list.append(
+            EntityFactory.get_entity(entity_name="player1", level=1, images_amount=1)
+        )
+
         self.timeout = 20000  # Tempo limite do nível em milissegundos
 
     def run(self):
