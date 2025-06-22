@@ -27,4 +27,6 @@ class EntityFactory:
                 return list_bg
 
             case "player1":
-                return Player(name="Player1", position=(10, WINDOW_HEIGHT / 2))
+                return Player(name="Player1", position=(10, WINDOW_HEIGHT / 4))
+            case "player2":
+                return Player(name="Player2", position=(10, WINDOW_HEIGHT / 2))

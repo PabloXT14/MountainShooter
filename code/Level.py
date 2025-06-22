@@ -5,7 +5,7 @@ from pygame.font import Font
 
 from code.Entity import Entity
 from code.EntityFactory import EntityFactory
-from code.Constants import FONTS, COLOR_WHITE, WINDOW_HEIGHT
+from code.Constants import FONTS, COLOR_WHITE, WINDOW_HEIGHT, MENU_OPTIONS
 
 
 class Level:
@@ -15,12 +15,23 @@ class Level:
         self.game_mode = game_mode
 
         self.entity_list: list[Entity] = []
+
+        # Background
         self.entity_list.extend(
             EntityFactory.get_entity(entity_name="background", level=1, images_amount=7)
         )
+
+        # Players
         self.entity_list.append(
             EntityFactory.get_entity(entity_name="player1", level=1, images_amount=1)
         )
+
+        if self.game_mode in [MENU_OPTIONS[1], MENU_OPTIONS[2]]:
+            self.entity_list.append(
+                EntityFactory.get_entity(
+                    entity_name="player2", level=1, images_amount=1
+                )
+            )
 
         self.timeout = 20000  # Tempo limite do nível em milissegundos
 
