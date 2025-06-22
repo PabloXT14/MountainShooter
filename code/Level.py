@@ -2,10 +2,18 @@ import pygame
 from pygame import Surface
 from pygame import Rect
 from pygame.font import Font
+from random import choice
 
 from code.Entity import Entity
 from code.EntityFactory import EntityFactory
-from code.Constants import FONTS, COLOR_WHITE, WINDOW_HEIGHT, MENU_OPTIONS
+from code.Constants import (
+    FONTS,
+    COLOR_WHITE,
+    WINDOW_HEIGHT,
+    MENU_OPTIONS,
+    EVENT_ENEMY,
+    ENEMY_SPAWN_TIME,
+)
 
 
 class Level:
@@ -23,15 +31,16 @@ class Level:
 
         # Players
         self.entity_list.append(
-            EntityFactory.get_entity(entity_name="player1", level=1, images_amount=1)
+            EntityFactory.get_entity(entity_name="player1", images_amount=1)
         )
 
         if self.game_mode in [MENU_OPTIONS[1], MENU_OPTIONS[2]]:
             self.entity_list.append(
-                EntityFactory.get_entity(
-                    entity_name="player2", level=1, images_amount=1
-                )
+                EntityFactory.get_entity(entity_name="player2", images_amount=1)
             )
+
+        # Registro de evento de inimigo
+        pygame.time.set_timer(event=EVENT_ENEMY, millis=ENEMY_SPAWN_TIME, loops=-1)
 
         self.timeout = 20000  # Tempo limite do nível em milissegundos
 
@@ -54,10 +63,20 @@ class Level:
 
             # Eventos
             for event in pygame.event.get():
+                # Quando o jogador fecha a janela
                 if event.type == pygame.QUIT:
                     running = False  # Stop the loop
                     pygame.quit()  # Close the window
                     quit()  # Close the program
+                # Gera um novo inimigo
+                if event.type == EVENT_ENEMY:
+                    enemy_choice = choice(("enemy1", "enemy2"))
+
+                    self.entity_list.append(
+                        EntityFactory.get_entity(
+                            entity_name=enemy_choice, images_amount=1
+                        )
+                    )
 
             # Desenha as entidades
             for entity in self.entity_list:
