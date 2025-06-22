@@ -9,6 +9,9 @@ COLOR_WHITE = (255, 255, 255)
 COLOR_ORANGE = (255, 128, 0)
 COLOR_YELLOW = (255, 255, 0)
 
+# Fonts
+FONTS = "PressStart2P, Lucida Sans Typewriter, Arial"
+
 # Menu
 MENU_OPTIONS = (
     "NEW GAME (1 PLAYER)",
@@ -27,5 +30,5 @@ ENTITIES_SPEED = {
     "Level1Bg3": 3,
     "Level1Bg4": 4,
     "Level1Bg5": 5,
-    "Level1Bg6": 6,
+    "Level1Bg6": 5,
 }
