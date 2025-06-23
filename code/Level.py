@@ -14,6 +14,7 @@ from code.Constants import (
     EVENT_ENEMY,
     ENEMY_SPAWN_TIME,
 )
+from code.EntityMediator import EntityMediator
 
 
 class Level:
@@ -108,6 +109,12 @@ class Level:
 
             # Atualiza a tela
             pygame.display.flip()
+
+            # Verificação de colisões
+            EntityMediator.verify_collision(entity_list=self.entity_list)
+
+            # Verificação de saúde
+            EntityMediator.verify_health(entity_list=self.entity_list)
 
     def level_text(
         self, text_size: int, text: str, text_color: tuple, text_position: tuple

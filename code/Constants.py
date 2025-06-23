@@ -38,6 +38,22 @@ ENTITIES_SPEED = {
     "Enemy2": 2,
 }
 
+# Heaths
+
+ENTITY_HEALTH = {
+    "Level1Bg0": 999,
+    "Level1Bg1": 999,
+    "Level1Bg2": 999,
+    "Level1Bg3": 999,
+    "Level1Bg4": 999,
+    "Level1Bg5": 999,
+    "Level1Bg6": 999,
+    "Player1": 300,
+    "Player2": 300,
+    "Enemy1": 50,
+    "Enemy2": 60,
+}
+
 # Players Keys
 PLAYER_KEY_UP = {"Player1": pygame.K_UP, "Player2": pygame.K_w}
 
@@ -55,5 +71,5 @@ EVENT_ENEMY = (
     pygame.USEREVENT + 1
 )  # USEREVENT -> constante do pygame geração de eventos, +1 para evitar conflito de eventos
 
-ENEMY_SPAWN_TIME = 4000
+ENEMY_SPAWN_TIME = 3000  # milissegundos
 ENEMY_SPAWN_PADDING = 30
