@@ -1,5 +1,8 @@
 from code.Entity import Entity
 from code.Enemy import Enemy
+from code.PlayerShot import PlayerShot
+from code.EnemyShot import EnemyShot
+from code.Constants import WINDOW_WIDTH
 
 
 class EntityMediator:
@@ -11,8 +14,18 @@ class EntityMediator:
 
     @staticmethod
     def __verify_collision_window(entity: Entity):
+        # Destroy the enemy if it goes out of the window
         if isinstance(entity, Enemy):
-            # Destroy the enemy if it goes out of the window
+            if entity.rect.right <= 0:
+                entity.health = 0
+
+        # Destroy PlayerShot if it goes out of the window
+        if isinstance(entity, PlayerShot):
+            if entity.rect.left >= WINDOW_WIDTH:
+                entity.health = 0
+
+        # Destroy EnemyShot if it goes out of the window
+        if isinstance(entity, EnemyShot):
             if entity.rect.right <= 0:
                 entity.health = 0
 

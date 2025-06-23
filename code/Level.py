@@ -5,6 +5,8 @@ from pygame.font import Font
 from random import choice
 
 from code.Entity import Entity
+from code.Player import Player
+from code.Enemy import Enemy
 from code.EntityFactory import EntityFactory
 from code.Constants import (
     FONTS,
@@ -79,11 +81,18 @@ class Level:
                         )
                     )
 
-            # Desenha as entidades
+            # Desenha todas entidades, Registro de shot
             for entity in self.entity_list:
                 self.window.blit(source=entity.surf, dest=entity.rect)
 
                 entity.move()  # Move the entity
+
+                # Registrando entidade de shot
+                if isinstance(entity, (Player, Enemy)):
+                    shoot = entity.shoot()
+
+                    if shoot:
+                        self.entity_list.append(shoot)
 
             # Desenha os textos do nível
             self.level_text(
