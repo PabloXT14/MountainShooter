@@ -3,7 +3,7 @@ from abc import ABC, abstractmethod
 import pygame
 from pygame import Surface, Rect
 
-from code.Constants import WINDOW_WIDTH, WINDOW_HEIGHT
+from code.Constants import WINDOW_WIDTH, WINDOW_HEIGHT, ENTITY_HEALTH
 
 
 class Entity(ABC):
@@ -21,6 +21,8 @@ class Entity(ABC):
         self.rect: Rect = self.surf.get_rect(left=position[0], top=position[1])
 
         self.speed = 0
+
+        self.health = ENTITY_HEALTH[self.name]
 
     @abstractmethod
     def move(self):
