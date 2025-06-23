@@ -27,7 +27,7 @@ class Game:
             # LEVEL OPTIONS
             if selected_option in [MENU_OPTIONS[0], MENU_OPTIONS[1], MENU_OPTIONS[2]]:
                 level = Level(
-                    window=self.window, name="Level 1", game_mode=selected_option
+                    window=self.window, name="Level1", game_mode=selected_option
                 )
 
                 level_result = level.run()
