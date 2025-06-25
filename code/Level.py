@@ -11,7 +11,10 @@ from code.EntityFactory import EntityFactory
 from code.Constants import (
     FONTS,
     COLOR_WHITE,
+    COLOR_GREEN,
+    COLOR_CYAN,
     WINDOW_HEIGHT,
+    WINDOW_WIDTH,
     MENU_OPTIONS,
     EVENT_ENEMY,
     ENEMY_SPAWN_TIME,
@@ -93,6 +96,23 @@ class Level:
 
                     if shoot:
                         self.entity_list.append(shoot)
+
+                # Textos de Score e HUD
+                if entity.name == "Player1":
+                    self.level_text(
+                        text_size=14,
+                        text=f"{entity.name} - Health: {entity.health} | Score: {entity.score}",
+                        text_color=COLOR_GREEN,
+                        text_position=(10, 25),
+                    )
+
+                if entity.name == "Player2":
+                    self.level_text(
+                        text_size=14,
+                        text=f"{entity.name} - Health: {entity.health} | Score: {entity.score}",
+                        text_color=COLOR_CYAN,
+                        text_position=(10, 45),
+                    )
 
             # Desenha os textos do nível
             self.level_text(

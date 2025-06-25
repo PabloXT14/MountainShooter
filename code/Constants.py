@@ -10,6 +10,8 @@ COLOR_WHITE = (255, 255, 255)
 
 COLOR_ORANGE = (255, 128, 0)
 COLOR_YELLOW = (255, 255, 0)
+COLOR_GREEN = (0, 128, 0)
+COLOR_CYAN = (0, 128, 128)
 
 # Fonts
 FONTS = "PressStart2P, Lucida Sans Typewriter, Arial"
@@ -80,6 +82,26 @@ ENTITY_DAMAGE = {
     "Player2Shot": 20,
     "Enemy1Shot": 20,
     "Enemy2Shot": 15,
+}
+
+# Score (given when entity dies)
+
+ENTITY_SCORE = {
+    "Level1Bg0": 0,
+    "Level1Bg1": 0,
+    "Level1Bg2": 0,
+    "Level1Bg3": 0,
+    "Level1Bg4": 0,
+    "Level1Bg5": 0,
+    "Level1Bg6": 0,
+    "Player1": 0,
+    "Player2": 0,
+    "Enemy1": 100,
+    "Enemy2": 125,
+    "Player1Shot": 0,
+    "Player2Shot": 0,
+    "Enemy1Shot": 0,
+    "Enemy2Shot": 0,
 }
 
 # Players Keys
