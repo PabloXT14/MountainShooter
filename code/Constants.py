@@ -62,6 +62,26 @@ ENTITY_HEALTH = {
     "Enemy2Shot": 1,
 }
 
+# Damage
+
+ENTITY_DAMAGE = {
+    "Level1Bg0": 0,
+    "Level1Bg1": 0,
+    "Level1Bg2": 0,
+    "Level1Bg3": 0,
+    "Level1Bg4": 0,
+    "Level1Bg5": 0,
+    "Level1Bg6": 0,
+    "Player1": 1,
+    "Player2": 1,
+    "Enemy1": 1,
+    "Enemy2": 1,
+    "Player1Shot": 25,
+    "Player2Shot": 20,
+    "Enemy1Shot": 20,
+    "Enemy2Shot": 15,
+}
+
 # Players Keys
 PLAYER_KEY_UP = {"Player1": pygame.K_UP, "Player2": pygame.K_w}
 
