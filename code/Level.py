@@ -32,6 +32,7 @@ class Level:
         name: str,
         level_number: int,
         bg_images_amount: int,
+        players_score: list[int],
         game_mode: str,
     ):
         self.window = window
@@ -39,6 +40,8 @@ class Level:
         self.game_mode = game_mode
 
         self.timeout = TIMEOUT_LIMIT  # Tempo limite do nível em milissegundos
+
+        self.players_score = players_score
 
         self.entity_list: list[Entity] = []
 
@@ -52,14 +55,16 @@ class Level:
         )
 
         # Players
-        self.entity_list.append(
-            EntityFactory.get_entity(entity_name="player1", images_amount=1)
-        )
+        player1 = EntityFactory.get_entity(entity_name="player1", images_amount=1)
+        player1.score = players_score[0]
+
+        self.entity_list.append(player1)
 
         if self.game_mode in [MENU_OPTIONS[1], MENU_OPTIONS[2]]:
-            self.entity_list.append(
-                EntityFactory.get_entity(entity_name="player2", images_amount=1)
-            )
+            player2 = EntityFactory.get_entity(entity_name="player2", images_amount=1)
+            player2.score = players_score[1]
+
+            self.entity_list.append(player2)
 
         # Registro de evento de inimigo (-1 para loop infinito)
         pygame.time.set_timer(event=EVENT_ENEMY, millis=ENEMY_SPAWN_TIME, loops=-1)
@@ -107,11 +112,19 @@ class Level:
                         )
                     )
 
-                # Checa se o jogador ganhou ou perdeu
+                # Checa se o timeout acabou
                 if event.type == EVENT_TIMEOUT:
                     self.timeout -= TIMEOUT_DECREMENT_STEP
 
                     if self.timeout <= 0:
+                        # Registrando score
+                        for entity in self.entity_list:
+                            if isinstance(entity, Player):
+                                if entity.name == "Player1":
+                                    self.players_score[0] = entity.score
+                                elif entity.name == "Player2":
+                                    self.players_score[1] = entity.score
+
                         running = False
                         return True
 

@@ -19,6 +19,9 @@ class Game:
         running = True
 
         while running:
+            # Players score
+            players_score = [0, 0]  # [Player 1, Player 2]
+
             # Set Menu
             menu = Menu(window=self.window)
 
@@ -34,10 +37,11 @@ class Game:
                 for level_data in LEVELS:
                     level = Level(
                         window=self.window,
+                        game_mode=selected_option,
                         name=level_data["name"],
                         level_number=level_data["level_number"],
                         bg_images_amount=level_data["bg_images_amount"],
-                        game_mode=selected_option,
+                        players_score=players_score,
                     )
 
                     level_result = level.run()
