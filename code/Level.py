@@ -17,22 +17,38 @@ from code.Constants import (
     WINDOW_WIDTH,
     MENU_OPTIONS,
     EVENT_ENEMY,
+    EVENT_TIMEOUT,
     ENEMY_SPAWN_TIME,
+    TIMEOUT_DECREMENT_STEP,
+    TIMEOUT_LIMIT,
 )
 from code.EntityMediator import EntityMediator
 
 
 class Level:
-    def __init__(self, window: Surface, name: str, game_mode: str):
+    def __init__(
+        self,
+        window: Surface,
+        name: str,
+        level_number: int,
+        bg_images_amount: int,
+        game_mode: str,
+    ):
         self.window = window
         self.name = name
         self.game_mode = game_mode
+
+        self.timeout = TIMEOUT_LIMIT  # Tempo limite do nível em milissegundos
 
         self.entity_list: list[Entity] = []
 
         # Background
         self.entity_list.extend(
-            EntityFactory.get_entity(entity_name="background", level=1, images_amount=7)
+            EntityFactory.get_entity(
+                entity_name="background",
+                level=level_number,
+                images_amount=bg_images_amount,
+            )
         )
 
         # Players
@@ -45,10 +61,13 @@ class Level:
                 EntityFactory.get_entity(entity_name="player2", images_amount=1)
             )
 
-        # Registro de evento de inimigo
+        # Registro de evento de inimigo (-1 para loop infinito)
         pygame.time.set_timer(event=EVENT_ENEMY, millis=ENEMY_SPAWN_TIME, loops=-1)
 
-        self.timeout = 20000  # Tempo limite do nível em milissegundos
+        # Registro de evento de timeout (para checar se o jogador ganhou ou perdeu)
+        pygame.time.set_timer(
+            event=EVENT_TIMEOUT, millis=TIMEOUT_DECREMENT_STEP, loops=-1
+        )
 
     def run(self):
 
@@ -74,6 +93,7 @@ class Level:
                     running = False  # Stop the loop
                     pygame.quit()  # Close the window
                     quit()  # Close the program
+
                 # Gera um novo inimigo
                 if event.type == EVENT_ENEMY:
                     enemy_choice = choice(("enemy1", "enemy2"))
@@ -83,6 +103,14 @@ class Level:
                             entity_name=enemy_choice, images_amount=1
                         )
                     )
+
+                # Checa se o jogador ganhou ou perdeu
+                if event.type == EVENT_TIMEOUT:
+                    self.timeout -= TIMEOUT_DECREMENT_STEP
+
+                    if self.timeout <= 0:
+                        running = False
+                        return True
 
             # Desenha todas entidades, Registro de shot
             for entity in self.entity_list:

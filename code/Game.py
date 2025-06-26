@@ -1,6 +1,6 @@
 import pygame
 
-from code.Constants import WINDOW_WIDTH, WINDOW_HEIGHT, MENU_OPTIONS
+from code.Constants import WINDOW_WIDTH, WINDOW_HEIGHT, MENU_OPTIONS, LEVELS
 from code.Menu import Menu
 from code.Level import Level
 
@@ -26,11 +26,27 @@ class Game:
 
             # LEVEL OPTIONS
             if selected_option in [MENU_OPTIONS[0], MENU_OPTIONS[1], MENU_OPTIONS[2]]:
-                level = Level(
-                    window=self.window, name="Level1", game_mode=selected_option
-                )
+                # level = Level(
+                #     window=self.window, name="Level1", game_mode=selected_option
+                # )
 
-                level_result = level.run()
+                # level_result = level.run()
+                for level_data in LEVELS:
+                    level = Level(
+                        window=self.window,
+                        name=level_data["name"],
+                        level_number=level_data["level_number"],
+                        bg_images_amount=level_data["bg_images_amount"],
+                        game_mode=selected_option,
+                    )
+
+                    level_result = level.run()
+
+                    # Se o jogador falhar, interrompe o loop
+                    if not level_result:
+                        running = False
+                        break
+
             # QUIT
             elif selected_option == MENU_OPTIONS[4]:
                 running = False  # Stop the loop

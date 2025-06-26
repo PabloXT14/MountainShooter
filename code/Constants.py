@@ -25,6 +25,21 @@ MENU_OPTIONS = (
     "QUIT",
 )
 
+# Levels
+
+LEVELS = [
+    {
+        "name": "Level1",
+        "level_number": 1,
+        "bg_images_amount": 7,
+    },
+    {
+        "name": "Level2",
+        "level_number": 2,
+        "bg_images_amount": 5,
+    },
+]
+
 # Speeds
 ENTITIES_SPEED = {
     "Level1Bg0": 0,
@@ -34,6 +49,11 @@ ENTITIES_SPEED = {
     "Level1Bg4": 4,
     "Level1Bg5": 5,
     "Level1Bg6": 5,
+    "Level2Bg0": 0,
+    "Level2Bg1": 1,
+    "Level2Bg2": 2,
+    "Level2Bg3": 3,
+    "Level2Bg4": 4,
     "Player1": 3,
     "Player2": 3,
     "Enemy1": 2,
@@ -54,6 +74,11 @@ ENTITY_HEALTH = {
     "Level1Bg4": 999,
     "Level1Bg5": 999,
     "Level1Bg6": 999,
+    "Level2Bg0": 999,
+    "Level2Bg1": 999,
+    "Level2Bg2": 999,
+    "Level2Bg3": 999,
+    "Level2Bg4": 999,
     "Player1": 300,
     "Player2": 300,
     "Enemy1": 50,
@@ -74,6 +99,11 @@ ENTITY_DAMAGE = {
     "Level1Bg4": 0,
     "Level1Bg5": 0,
     "Level1Bg6": 0,
+    "Level2Bg0": 0,
+    "Level2Bg1": 0,
+    "Level2Bg2": 0,
+    "Level2Bg3": 0,
+    "Level2Bg4": 0,
     "Player1": 1,
     "Player2": 1,
     "Enemy1": 1,
@@ -94,6 +124,11 @@ ENTITY_SCORE = {
     "Level1Bg4": 0,
     "Level1Bg5": 0,
     "Level1Bg6": 0,
+    "Level2Bg0": 0,
+    "Level2Bg1": 0,
+    "Level2Bg2": 0,
+    "Level2Bg3": 0,
+    "Level2Bg4": 0,
     "Player1": 0,
     "Player2": 0,
     "Enemy1": 100,
@@ -123,6 +158,12 @@ EVENT_ENEMY = (
 
 ENEMY_SPAWN_TIME = 3000  # milissegundos
 ENEMY_SPAWN_PADDING = 30
+
+TIMEOUT_LIMIT = 10000  # milissegundos
+EVENT_TIMEOUT = (
+    pygame.USEREVENT + 2
+)  # USEREVENT -> constante do pygame geração de eventos, +2 para evitar conflito de eventos
+TIMEOUT_DECREMENT_STEP = 100  # milissegundos
 
 # Shots Delay
 ENTITY_SHOT_DELAY = {
