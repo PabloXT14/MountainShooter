@@ -83,6 +83,9 @@ class Level:
         clock = pygame.time.Clock()
 
         while running:
+            # Resetando variável de controle de morte
+            is_player_dead = True
+
             # Controla a taxa de quadros
             clock.tick(60)  # 60 FPS
 
@@ -112,7 +115,7 @@ class Level:
                         running = False
                         return True
 
-            # Desenha todas entidades, Registro de shot
+            # Desenha todas entidades, Registro de shot, Check game over
             for entity in self.entity_list:
                 self.window.blit(source=entity.surf, dest=entity.rect)
 
@@ -141,6 +144,15 @@ class Level:
                         text_color=COLOR_CYAN,
                         text_position=(10, 45),
                     )
+
+                # Check game over
+                if isinstance(entity, Player):
+                    is_player_dead = False
+
+            # Check game over
+            if is_player_dead:
+                running = False
+                return False
 
             # Desenha os textos do nível
             self.level_text(

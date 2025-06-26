@@ -156,10 +156,10 @@ EVENT_ENEMY = (
     pygame.USEREVENT + 1
 )  # USEREVENT -> constante do pygame geração de eventos, +1 para evitar conflito de eventos
 
-ENEMY_SPAWN_TIME = 3000  # milissegundos
+ENEMY_SPAWN_TIME = 2000  # milissegundos
 ENEMY_SPAWN_PADDING = 30
 
-TIMEOUT_LIMIT = 10000  # milissegundos
+TIMEOUT_LIMIT = 20000  # milissegundos
 EVENT_TIMEOUT = (
     pygame.USEREVENT + 2
 )  # USEREVENT -> constante do pygame geração de eventos, +2 para evitar conflito de eventos

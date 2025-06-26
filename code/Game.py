@@ -42,9 +42,9 @@ class Game:
 
                     level_result = level.run()
 
-                    # Se o jogador falhar, interrompe o loop
+                    # Se o jogador falhar/perder, sai do loop de níveis
                     if not level_result:
-                        running = False
+                        # TODO: Mostrar tela de derrota (dica: copiar do Menu)
                         break
 
             # QUIT
