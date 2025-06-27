@@ -3,6 +3,7 @@ import pygame
 from code.Constants import WINDOW_WIDTH, WINDOW_HEIGHT, MENU_OPTIONS, LEVELS
 from code.Menu import Menu
 from code.Level import Level
+from code.Score import Score
 
 
 class Game:
@@ -27,13 +28,18 @@ class Game:
 
             selected_option = menu.run()
 
+            # Score Screen
+            score = Score(window=self.window)
+
             # LEVEL OPTIONS
             if selected_option in [MENU_OPTIONS[0], MENU_OPTIONS[1], MENU_OPTIONS[2]]:
-                # level = Level(
-                #     window=self.window, name="Level1", game_mode=selected_option
-                # )
+                # TEMPORARY: Save score
+                score.save(
+                    game_mode=selected_option,
+                    players_score=players_score,
+                )
 
-                # level_result = level.run()
+                # Loop de níveis
                 for level_data in LEVELS:
                     level = Level(
                         window=self.window,
@@ -50,6 +56,17 @@ class Game:
                     if not level_result:
                         # TODO: Mostrar tela de derrota (dica: copiar do Menu)
                         break
+
+                    # Se o jogador ganhar/passar do último nível, salva o score
+                    if level_data["level_number"] == len(LEVELS):
+                        score.save(
+                            selected_menu_option=selected_option,
+                            players_score=players_score,
+                        )
+
+            # SCORE
+            elif selected_option == MENU_OPTIONS[3]:
+                score.show()
 
             # QUIT
             elif selected_option == MENU_OPTIONS[4]:

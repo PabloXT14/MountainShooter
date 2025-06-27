@@ -52,7 +52,7 @@ ENTITIES_SPEED = {
     "Level2Bg0": 0,
     "Level2Bg1": 1,
     "Level2Bg2": 2,
-    "Level2Bg3": 3,
+    "Level2Bg3": 4,
     "Level2Bg4": 4,
     "Player1": 3,
     "Player2": 3,
@@ -159,7 +159,7 @@ EVENT_ENEMY = (
 ENEMY_SPAWN_TIME = 2000  # milissegundos
 ENEMY_SPAWN_PADDING = 30
 
-TIMEOUT_LIMIT = 20000  # milissegundos
+TIMEOUT_LIMIT = 5000  # milissegundos
 EVENT_TIMEOUT = (
     pygame.USEREVENT + 2
 )  # USEREVENT -> constante do pygame geração de eventos, +2 para evitar conflito de eventos
@@ -171,4 +171,22 @@ ENTITY_SHOT_DELAY = {
     "Player2": 15,
     "Enemy1": 100,
     "Enemy2": 200,
+}
+
+# Score Texts Positions
+SCORE_TEXT_POSITIONS = {
+    "Title": (WINDOW_WIDTH / 2, 50),
+    "EnterName": (WINDOW_WIDTH / 2, 80),
+    "Label": (WINDOW_WIDTH / 2, 90),
+    "Name": (WINDOW_WIDTH / 2, 110),
+    # 0: (WINDOW_WIDTH / 2, 110),
+    # 1: (WINDOW_WIDTH / 2, 130),
+    # 2: (WINDOW_WIDTH / 2, 150),
+    # 3: (WINDOW_WIDTH / 2, 170),
+    # 4: (WINDOW_WIDTH / 2, 190),
+    # 5: (WINDOW_WIDTH / 2, 210),
+    # 6: (WINDOW_WIDTH / 2, 230),
+    # 7: (WINDOW_WIDTH / 2, 250),
+    # 8: (WINDOW_WIDTH / 2, 270),
+    # 9: (WINDOW_WIDTH / 2, 290),
 }
