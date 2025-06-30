@@ -34,10 +34,10 @@ class Game:
             # LEVEL OPTIONS
             if selected_option in [MENU_OPTIONS[0], MENU_OPTIONS[1], MENU_OPTIONS[2]]:
                 # TEMPORARY: Save score
-                score.save(
-                    game_mode=selected_option,
-                    players_score=players_score,
-                )
+                # score.save(
+                #     game_mode=selected_option,
+                #     players_score=players_score,
+                # )
 
                 # Loop de níveis
                 for level_data in LEVELS:
@@ -60,7 +60,7 @@ class Game:
                     # Se o jogador ganhar/passar do último nível, salva o score
                     if level_data["level_number"] == len(LEVELS):
                         score.save(
-                            selected_menu_option=selected_option,
+                            game_mode=selected_option,
                             players_score=players_score,
                         )
 

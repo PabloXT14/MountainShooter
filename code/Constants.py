@@ -176,9 +176,10 @@ ENTITY_SHOT_DELAY = {
 # Score Texts Positions
 SCORE_TEXT_POSITIONS = {
     "Title": (WINDOW_WIDTH / 2, 50),
-    "EnterName": (WINDOW_WIDTH / 2, 80),
+    "Score": (WINDOW_WIDTH / 2, 100),
+    "EnterName": (WINDOW_WIDTH / 2, 140),
+    "Name": (WINDOW_WIDTH / 2, 180),
     "Label": (WINDOW_WIDTH / 2, 90),
-    "Name": (WINDOW_WIDTH / 2, 110),
     # 0: (WINDOW_WIDTH / 2, 110),
     # 1: (WINDOW_WIDTH / 2, 130),
     # 2: (WINDOW_WIDTH / 2, 150),
