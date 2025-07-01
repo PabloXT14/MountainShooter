@@ -80,7 +80,7 @@ class Score:
 
         # Pressione ESC para voltar ao menu
         self.score_text(
-            text="Pressione ESC para voltar ao menu",
+            text="Press ESC to return to menu",
             text_size=14,
             text_color=COLOR_WHITE,
             text_center_pos=(WINDOW_WIDTH / 2, WINDOW_HEIGHT - 20),
