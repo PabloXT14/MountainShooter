@@ -176,7 +176,8 @@ class Score:
                         running = False
 
                     elif len(player_name) < 4:
-                        player_name += event.unicode
+                        if event.unicode.isalpha():
+                            player_name += event.unicode
 
             self.score_text(
                 text=f"{str(score)} points",
