@@ -13,6 +13,8 @@ COLOR_YELLOW = (255, 255, 0)
 COLOR_GREEN = (0, 128, 0)
 COLOR_CYAN = (0, 128, 128)
 
+COLOR_RED = (239, 68, 68)
+
 # Fonts
 FONTS = "PressStart2P, Lucida Sans Typewriter, Arial"
 
@@ -58,7 +60,7 @@ ENTITIES_SPEED = {
     "Player2": 3,
     "Enemy1": 2,
     "Enemy2": 1,
-    "Player1Shot": 2,
+    "Player1Shot": 4,
     "Player2Shot": 4,
     "Enemy1Shot": 5,  # Deve ser maior que a velocidade do inimigo relativamente (para a balada ser mais rápida que o inimigo que está atirando)
     "Enemy2Shot": 2,  # Deve ser maior que a velocidade do inimigo relativamente
@@ -79,8 +81,8 @@ ENTITY_HEALTH = {
     "Level2Bg2": 999,
     "Level2Bg3": 999,
     "Level2Bg4": 999,
-    "Player1": 300,
-    "Player2": 300,
+    "Player1": 100,
+    "Player2": 100,
     "Enemy1": 50,
     "Enemy2": 60,
     "Player1Shot": 1,

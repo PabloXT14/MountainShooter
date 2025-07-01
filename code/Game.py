@@ -4,6 +4,7 @@ from code.Constants import WINDOW_WIDTH, WINDOW_HEIGHT, MENU_OPTIONS, LEVELS
 from code.Menu import Menu
 from code.Level import Level
 from code.Score import Score
+from code.GameOver import GameOver
 
 
 class Game:
@@ -31,6 +32,9 @@ class Game:
             # Score Screen
             score = Score(window=self.window)
 
+            # Game Over Screen
+            game_over = GameOver(window=self.window)
+
             # LEVEL OPTIONS
             if selected_option in [MENU_OPTIONS[0], MENU_OPTIONS[1], MENU_OPTIONS[2]]:
                 # Loop de níveis
@@ -48,7 +52,7 @@ class Game:
 
                     # Se o jogador falhar/perder, sai do loop de níveis
                     if not level_result:
-                        # TODO: Mostrar tela de derrota (dica: copiar do Menu)
+                        game_over.show()
                         break
 
                     # Se o jogador ganhar/passar do último nível, salva o score
