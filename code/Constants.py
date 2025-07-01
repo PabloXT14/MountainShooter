@@ -179,7 +179,7 @@ SCORE_TEXT_POSITIONS = {
     "Score": (WINDOW_WIDTH / 2, 100),
     "EnterName": (WINDOW_WIDTH / 2, 140),
     "Name": (WINDOW_WIDTH / 2, 180),
-    "Label": (WINDOW_WIDTH / 2, 90),
+    "Rank": (WINDOW_WIDTH / 2, 100),
     # 0: (WINDOW_WIDTH / 2, 110),
     # 1: (WINDOW_WIDTH / 2, 130),
     # 2: (WINDOW_WIDTH / 2, 150),

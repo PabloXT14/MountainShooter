@@ -43,7 +43,51 @@ class Score:
         # Desenha a imagem
         self.window.blit(source=self.surface, dest=self.rect)
 
+        # Desenha o título
+        self.score_text(
+            text="TOP 10 SCORE",
+            text_size=48,
+            text_color=COLOR_YELLOW,
+            text_center_pos=SCORE_TEXT_POSITIONS["Title"],
+        )
+
+        self.score_text(
+            text="NAME  SCORE  DATE                  ",
+            text_size=16,
+            text_color=COLOR_YELLOW,
+            text_center_pos=SCORE_TEXT_POSITIONS["Rank"],
+        )
+
+        db_proxy = DBProxy(db_name="./data/database.db")
+
+        top_10_players = db_proxy.get_top_10_players()
+
+        db_proxy.close_connection()
+
+        for player in top_10_players:
+
+            id, name, score, date = player
+
+            self.score_text(
+                text=f"{name.upper()}    {score:05d}    {date}           ",
+                text_size=12,
+                text_color=COLOR_WHITE,
+                text_center_pos=(
+                    WINDOW_WIDTH / 2,
+                    130 + 20 * top_10_players.index(player),
+                ),
+            )
+
+        # Pressione ESC para voltar ao menu
+        self.score_text(
+            text="Pressione ESC para voltar ao menu",
+            text_size=14,
+            text_color=COLOR_WHITE,
+            text_center_pos=(WINDOW_WIDTH / 2, WINDOW_HEIGHT - 20),
+        )
+
         while running:
+
             # Eventos
             for event in pygame.event.get():
                 # Quando o jogador fecha a janela
@@ -52,8 +96,15 @@ class Score:
                     pygame.quit()  # Close the window
                     quit()  # Close the program
 
+                # Quando o jogador aperta uma tecla
+                if event.type == pygame.KEYDOWN:
+
+                    # Volta ao menu
+                    if event.key == pygame.K_ESCAPE:
+                        running = False
+
             # Atualiza a tela
-            pygame.display.update()
+            pygame.display.flip()
 
     def save(self, game_mode: str, players_score: list):
         running = True
@@ -149,7 +200,7 @@ class Score:
             )
 
             # Atualiza a tela
-            pygame.display.update()
+            pygame.display.flip()
 
     def score_text(
         self, text: str, text_size: int, text_color: tuple, text_center_pos: tuple
