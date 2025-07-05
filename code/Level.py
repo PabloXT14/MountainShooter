@@ -39,7 +39,9 @@ class Level:
         self.name = name
         self.game_mode = game_mode
 
-        self.timeout = TIMEOUT_LIMIT  # Tempo limite do nível em milissegundos
+        self.timeout = (
+            TIMEOUT_LIMIT * 2 if level_number == 3 else TIMEOUT_LIMIT
+        )  # Tempo limite do nível em milissegundos
 
         self.players_score = players_score
 
