@@ -45,17 +45,31 @@ class Menu:
 
             # Desenha o textos no menu
             self.menu_text(
-                text_size=50,
                 text="MOUNTAIN",
+                text_size=50,
                 text_color=COLOR_ORANGE,
                 text_center_pos=(WINDOW_WIDTH / 2, 70),
             )
 
             self.menu_text(
-                text_size=50,
                 text="SHOOTER",
+                text_size=50,
                 text_color=COLOR_ORANGE,
                 text_center_pos=(WINDOW_WIDTH / 2, 120),
+            )
+
+            self.menu_text(
+                text="NOME: PABLO ALAN",
+                text_size=10,
+                text_color=COLOR_WHITE,
+                text_center_pos=(84, WINDOW_HEIGHT - 10),
+            )
+
+            self.menu_text(
+                text="RU: 4571923",
+                text_size=10,
+                text_color=COLOR_WHITE,
+                text_center_pos=(WINDOW_WIDTH - 60, WINDOW_HEIGHT - 10),
             )
 
             for i, option in enumerate(MENU_OPTIONS):
