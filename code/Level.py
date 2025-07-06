@@ -39,6 +39,7 @@ class Level:
         self.name = name
         self.game_mode = game_mode
 
+        self.level_number = level_number
         self.timeout = (
             TIMEOUT_LIMIT * 2 if level_number == 3 else TIMEOUT_LIMIT
         )  # Tempo limite do nível em milissegundos
@@ -106,7 +107,10 @@ class Level:
 
                 # Gera um novo inimigo
                 if event.type == EVENT_ENEMY:
-                    enemy_choice = choice(("enemy1", "enemy2"))
+                    if self.level_number == 3:
+                        enemy_choice = "enemy3"
+                    else:
+                        enemy_choice = choice(("enemy1", "enemy2"))
 
                     self.entity_list.append(
                         EntityFactory.get_entity(

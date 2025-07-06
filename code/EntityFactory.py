@@ -57,3 +57,13 @@ class EntityFactory:
                         ),
                     ),
                 )
+            case "enemy3":
+                return Enemy(
+                    name="Enemy3",
+                    position=(
+                        WINDOW_WIDTH + 10,
+                        randint(
+                            ENEMY_SPAWN_PADDING, WINDOW_HEIGHT - ENEMY_SPAWN_PADDING
+                        ),
+                    ),
+                )

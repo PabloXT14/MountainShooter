@@ -66,12 +66,14 @@ ENTITIES_SPEED = {
     "Level3Bg2": 2,
     "Player1": 3,
     "Player2": 3,
-    "Enemy1": 2,
-    "Enemy2": 1,
+    "Enemy1": 5,
+    "Enemy2": 3,
+    "Enemy3": 5,
     "Player1Shot": 4,
     "Player2Shot": 4,
-    "Enemy1Shot": 5,  # Deve ser maior que a velocidade do inimigo relativamente (para a balada ser mais rápida que o inimigo que está atirando)
-    "Enemy2Shot": 2,  # Deve ser maior que a velocidade do inimigo relativamente
+    "Enemy1Shot": 7,  # Deve ser maior que a velocidade do inimigo relativamente (para a balada ser mais rápida que o inimigo que está atirando)
+    "Enemy2Shot": 5,
+    "Enemy3Shot": 8,
 }
 
 # Heaths
@@ -96,10 +98,12 @@ ENTITY_HEALTH = {
     "Player2": 100,
     "Enemy1": 50,
     "Enemy2": 60,
+    "Enemy3": 50,
     "Player1Shot": 1,
     "Player2Shot": 1,
     "Enemy1Shot": 1,
     "Enemy2Shot": 1,
+    "Enemy3Shot": 1,
 }
 
 # Damage
@@ -124,10 +128,12 @@ ENTITY_DAMAGE = {
     "Player2": 1,
     "Enemy1": 1,
     "Enemy2": 1,
-    "Player1Shot": 25,
+    "Enemy3": 1,
+    "Player1Shot": 20,
     "Player2Shot": 20,
     "Enemy1Shot": 20,
-    "Enemy2Shot": 15,
+    "Enemy2Shot": 30,
+    "Enemy3Shot": 20,
 }
 
 # Score (given when entity dies)
@@ -152,10 +158,12 @@ ENTITY_SCORE = {
     "Player2": 0,
     "Enemy1": 100,
     "Enemy2": 125,
+    "Enemy3": 150,
     "Player1Shot": 0,
     "Player2Shot": 0,
     "Enemy1Shot": 0,
     "Enemy2Shot": 0,
+    "Enemy3Shot": 0,
 }
 
 # Players Keys
@@ -176,7 +184,7 @@ EVENT_ENEMY = (
 )  # USEREVENT -> constante do pygame geração de eventos, +1 para evitar conflito de eventos
 
 ENEMY_SPAWN_TIME = 2000  # milissegundos
-ENEMY_SPAWN_PADDING = 30
+ENEMY_SPAWN_PADDING = 50
 
 TIMEOUT_LIMIT = 20000  # milissegundos
 EVENT_TIMEOUT = (
@@ -184,12 +192,13 @@ EVENT_TIMEOUT = (
 )  # USEREVENT -> constante do pygame geração de eventos, +2 para evitar conflito de eventos
 TIMEOUT_DECREMENT_STEP = 100  # milissegundos
 
-# Shots Delay
+# Shots Delay (in milissegundos)
 ENTITY_SHOT_DELAY = {
     "Player1": 20,
     "Player2": 15,
-    "Enemy1": 100,
-    "Enemy2": 200,
+    "Enemy1": 50,
+    "Enemy2": 100,
+    "Enemy3": 50,
 }
 
 # Score Texts Positions
