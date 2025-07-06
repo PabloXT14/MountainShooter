@@ -27,7 +27,7 @@ class GameOver:
         )
 
         self.game_over_text(
-            text="Press any key to continue",
+            text="Press ESC to return to menu",
             text_size=14,
             text_color=COLOR_WHITE,
             text_center_pos=(WINDOW_WIDTH / 2, WINDOW_HEIGHT - 30),
@@ -51,7 +51,8 @@ class GameOver:
                     quit()  # Close the program
 
                 if event.type == pygame.KEYDOWN:
-                    running = False
+                    if event.key == pygame.K_ESCAPE:
+                        running = False
 
             pygame.display.flip()
 
