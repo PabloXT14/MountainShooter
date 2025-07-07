@@ -103,7 +103,7 @@ class Level:
                 if event.type == pygame.QUIT:
                     running = False  # Stop the loop
                     pygame.quit()  # Close the window
-                    quit()  # Close the program
+                    quit()  # End pygame
 
                 # Gera um novo inimigo
                 if event.type == EVENT_ENEMY:

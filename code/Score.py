@@ -94,7 +94,7 @@ class Score:
                 if event.type == pygame.QUIT:
                     running = False  # Stop the loop
                     pygame.quit()  # Close the window
-                    quit()  # Close the program
+                    quit()  # End pygame
 
                 # Quando o jogador aperta uma tecla
                 if event.type == pygame.KEYDOWN:
@@ -157,7 +157,7 @@ class Score:
                 if event.type == pygame.QUIT:
                     running = False  # Stop the loop
                     pygame.quit()  # Close the window
-                    quit()  # Close the program
+                    quit()  # End pygame
 
                 # Pegando name do player
                 elif event.type == pygame.KEYDOWN:

@@ -48,7 +48,7 @@ class GameOver:
                 if event.type == pygame.QUIT:
                     running = False  # Stop the loop
                     pygame.quit()  # Close the window
-                    quit()  # Close the program
+                    quit()  # End pygame
 
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:

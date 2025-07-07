@@ -69,7 +69,9 @@ class Game:
             # QUIT
             elif selected_option == MENU_OPTIONS[4]:
                 running = False  # Stop the loop
-                pygame.quit()  # Close the window
-                quit()  # Close the program
+
             else:
                 pass
+
+
+pygame.quit()

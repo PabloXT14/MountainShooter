@@ -89,7 +89,7 @@ class Menu:
                 if event.type == pygame.QUIT:
                     running = False  # Stop the loop
                     pygame.quit()  # Close the window
-                    quit()  # Close the program
+                    quit()  # End pygame
 
                 # Check key down events
                 if event.type == pygame.KEYDOWN:
