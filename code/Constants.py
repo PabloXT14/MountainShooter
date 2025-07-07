@@ -1,4 +1,7 @@
+import os
+
 import pygame
+
 
 # Window
 WINDOW_WIDTH = 640
@@ -16,7 +19,7 @@ COLOR_CYAN = (0, 128, 128)
 COLOR_RED = (239, 68, 68)
 
 # Fonts
-FONTS = "PressStart2P, Lucida Sans Typewriter, Arial"
+FONTS = os.path.join("assets", "fonts", "PressStart2P-Regular.ttf")
 
 # Menu
 MENU_OPTIONS = (
@@ -66,14 +69,14 @@ ENTITIES_SPEED = {
     "Level3Bg2": 2,
     "Player1": 3,
     "Player2": 3,
-    "Enemy1": 5,
-    "Enemy2": 3,
-    "Enemy3": 5,
+    "Enemy1": 3,
+    "Enemy2": 2,
+    "Enemy3": 3,
     "Player1Shot": 4,
     "Player2Shot": 4,
-    "Enemy1Shot": 7,  # Deve ser maior que a velocidade do inimigo relativamente (para a balada ser mais rápida que o inimigo que está atirando)
-    "Enemy2Shot": 5,
-    "Enemy3Shot": 8,
+    "Enemy1Shot": 8,  # Deve ser maior que a velocidade do inimigo relativamente (para a balada ser mais rápida que o inimigo que está atirando)
+    "Enemy2Shot": 7,
+    "Enemy3Shot": 10,
 }
 
 # Heaths
@@ -198,7 +201,7 @@ ENTITY_SHOT_DELAY = {
     "Player2": 15,
     "Enemy1": 50,
     "Enemy2": 100,
-    "Enemy3": 50,
+    "Enemy3": 70,
 }
 
 # Score Texts Positions
