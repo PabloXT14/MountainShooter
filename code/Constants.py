@@ -199,9 +199,9 @@ TIMEOUT_DECREMENT_STEP = 100  # milissegundos
 ENTITY_SHOT_DELAY = {
     "Player1": 20,
     "Player2": 15,
-    "Enemy1": 50,
+    "Enemy1": 55,
     "Enemy2": 100,
-    "Enemy3": 70,
+    "Enemy3": 60,
 }
 
 # Score Texts Positions
